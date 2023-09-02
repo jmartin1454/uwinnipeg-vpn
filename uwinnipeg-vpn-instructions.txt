@@ -1,0 +1,28 @@
+To connect to nuclear or moment using WSL2:
+
+1.  Start Cisco AnyConnect, connect to uwvpn.uwinnipeg.ca (the first
+time) or UW Campus Access (the second time).  This will pop up another
+window where you select UW Research Access and enter your username and
+password.  You will also need to accept the login using Duo on your
+mobile phone.
+
+Sometimes the stupid Cisco app needs to reconnect a few times.  Just
+be patient with the crappy software and hardware of Cisco.
+
+
+2.  Once Cisco is happy, follow the basic instructions here:
+https://gist.github.com/balmeida-nokia/122adf625c11c916902950e3255bd104
+
+Using Windows Powershell in admin mode, do the following:
+
+Get-NetAdapter | Where-Object {$_.InterfaceDescription -Match "Cisco AnyConnect"} | Set-NetIPInterface -InterfaceMetric 6000
+
+Basically, that's all you need to do!
+
+
+3.  Now you can connect to nuclear:
+ssh 142.132.30.201
+ssh nuclear.uwinnipeg.ca
+or moment:
+ssh 142.132.30.220
+ssh moment.uwinnipeg.ca
