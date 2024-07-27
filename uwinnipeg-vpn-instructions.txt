@@ -9,6 +9,48 @@ mobile phone.
 Sometimes the stupid Cisco app needs to reconnect a few times.  Just
 be patient with the crappy software and hardware of Cisco.
 
+2.  Follow the basic instructions here:
+https://github.com/microsoft/WSL/issues/4277
+
+You need to create a new file called .wslconfig with the lines
+
+[experimental]
+networkingMode=mirrored
+dnsTunneling=true
+
+in the directory C:\Users\jmartin
+
+3.  Start Ubuntu and everything should work.
+
+You can add to the end of /etc/hosts the lines
+
+# special hosts for uwinnipeg
+142.132.30.201 nuclear
+10.202.180.21 moment
+10.202.180.22 electric
+10.202.180.23 a10-3l11
+10.202.180.24 dipole
+
+You should be able to ssh to all of these machines, if the VPN is working.
+
+
+
+------------------------------------------------------------------------
+OLD INSTRUCTIONS
+------------------------------------------------------------------------
+
+
+To connect to nuclear or moment using WSL2:
+
+1.  Start Cisco AnyConnect, connect to uwvpn.uwinnipeg.ca (the first
+time) or UW Campus Access (the second time).  This will pop up another
+window where you select UW Research Access and enter your username and
+password.  You will also need to accept the login using Duo on your
+mobile phone.
+
+Sometimes the stupid Cisco app needs to reconnect a few times.  Just
+be patient with the crappy software and hardware of Cisco.
+
 
 2.  Once Cisco is happy, follow the basic instructions here:
 https://gist.github.com/balmeida-nokia/122adf625c11c916902950e3255bd104
